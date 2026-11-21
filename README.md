@@ -8,4 +8,6 @@ A tiny bird, endless spikes, and one goal: keep flying!
 https://pridebnath.github.io/first-unity-project/
 
 ### 🔴 🖼️ Screenshot
+<a href="https://pridebnath.github.io/first-unity-project/">
  <img src="/public/image/demo-1.png"   style="height: 480px;"/>
+</a>
