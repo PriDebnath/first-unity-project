@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -5,32 +6,48 @@ using UnityEngine.SceneManagement;
 public class logicScript : MonoBehaviour
 {
     public int score;
+    public int highScore;
+
     public Text scoreText;
+    public Text highScoreText;
+
     public GameObject gameOverObject;
 
-    [ContextMenu("addScrore")]
-  public  void addScrore(){
-score = score + 1;
-scoreText.text = score.ToString();
+    void Start()
+    {
+        // Load saved high score
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        highScoreText.text = "Best: " + highScore;
     }
 
-    public void restartGame(){
-SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    [ContextMenu("addScore")]
+    public void addScrore()
+    {
+        score++;
+
+        scoreText.text = score.ToString();
+
+        // Update high score
+        if (score > highScore)
+        {
+            highScore = score;
+
+            PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.Save();
+
+            highScoreText.text = "Best: " + highScore;
+        }
     }
-    // // Start is called once before the first execution of Update after the MonoBehaviour is created
-    // void Start()
-    // {
-        
-    // }
 
-    // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
+    public void restartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
-   public void gameOver(){
-      Debug.Log("game over caled");
+    public void gameOver()
+    {
+        Debug.Log("game over called");
         gameOverObject.SetActive(true);
     }
 }
