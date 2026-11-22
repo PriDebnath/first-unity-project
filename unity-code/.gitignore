@@ -6,7 +6,20 @@
 # See: https://github.com/github/gitignore/tree/main/Global
 #
 .utmp/
-/[Ll]ibrary/
+# /[Ll]ibrary/
+# ----
+// Source - https://stackoverflow.com/questions/38024383/excluding-library-folder-from-git-for-unity-project-causes-scene-to-be-lost?noredirect=1&utm_source=chatgpt.com
+/[Ll]ibrary/*
+
+# Keep Library ignored, but allow this specific file
+!/[Ll]ibrary/
+ /[Ll]ibrary/*
+!/[Ll]ibrary/LastSceneManagerSetup.txt
+!/[Ll]ibrary/urrentLayout-default.dwlt
+!/[Ll]ibrary/EditorSnapSettings.asset
+!/[Ll]ibrary/EditorUserBuildSettings.asset
+!/[Ll]ibrary/StateCache/
+# ------
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
